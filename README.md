@@ -7,18 +7,12 @@ hero:
   text: "Programmation mobile"
   tagline: Découvrir la programmation mobile avec MAUI
   actions:
-    - theme: alt
-      text: Feuille de route
-      link: https://roadmap.sh/r/c-335-mobile
     - theme: brand
       text: Thématiques
       link: /thematiques/README.html
     - theme: alt
-      text: Échéances
-      link: /echeances.html
-    - theme: brand
       text: Évaluation
-      link: /evaluation.html
+      link: /legal/evaluation.html
 
 features:
   - title: Projets
@@ -28,5 +22,8 @@ features:
   - title: Outils
     details: VSCommunity, Figma, Git
 ---
+
+
+![roadmap](./roadmap.png)
 
 

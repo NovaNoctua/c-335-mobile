@@ -24,7 +24,6 @@ export default withMermaid({
         logo: 'logo.svg',
         nav: [
             {text: 'Accueil', link: '/'},
-            {text: 'Actuellement', link: '/echeances.html'},
             {text: 'Thématiques', link: '/thematiques/README.html'},
             {text: 'Supports', link: '/supports/README.html'},
             //{text: 'Activités', link: '/activites/'}
@@ -93,7 +92,7 @@ export default withMermaid({
         },
 
         socialLinks: [
-            {icon: 'github', link: 'https://github.com/jonathanMelly/c-335-mobile'}
+            {icon: 'github', link: 'https://github.com/etml-inf/c-335-mobile'}
         ]
     },
     base: "/c-335-mobile/",//for gh pages
