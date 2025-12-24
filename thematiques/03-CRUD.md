@@ -6,9 +6,9 @@
 
 ### Supports
 
-- [CRUD](../supports/08-crud) 
+- [CRUD](../supports/08a-crud) 
 - [SQLITE](../supports/09-db.md)
-- [MVVM](../supports/07-mvvm)
+- [MVVM](../supports/05b-mvvm)
 
 ### Références
 - [EntityFramework (Persistence)](https://learn.microsoft.com/en-us/ef/core/get-started/overview/first-app?tabs=netcore-cli)
