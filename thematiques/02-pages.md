@@ -26,7 +26,6 @@ Les *pages* ou écrans s’articulent autour de 3 axes principaux:
 ## Activités
 - [ ] [Visage](../activites/visage/README.md)
 - [ ] [Menu](../activites/menu/README.md)
-- [ ] [A propos](../activites/apropos/README.md)
 
 ## Résultat attendu
 - [ ] Squelettes de pages du storyboard ajoutées

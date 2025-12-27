@@ -2,9 +2,20 @@
 ## Reproduction
 
 S’entraîner au layout en refaisant le visage 
-du [ppt](https://eduvaud-my.sharepoint.com/:p:/g/personal/jonathan_melly_eduvaud_ch/EXZRrhj_bpZKn_dnId7NPXIBDWN5WpuMPrRfikhj1nGrnA?e=Oz51Dc)
+du [layout](../../supports/04-layouts.pptx)
 
 ![visage.png](visage.png)
 
+## Évènements
+En lien avec la [théorie sur les évènements](../../supports/05a-evenement.md) ainsi que de [documentation officielle](https://learn.microsoft.com/en-us/dotnet/api/microsoft.maui.controls.visualelement.translationx?view=net-maui-10.0), ajouter de quoi bouger les dents:
+
+- à gauche
+- à droite
+- en haut
+- en bas
+
+![teethmove.gif](teethmove.gif)
+
 ## Storyboard
-Reprendre le storyboard FlashCard et implémenter un design correspondant (pas d’action, juste le design)
+Reprendre le storyboard FlashCard et implémenter un design correspondant (pas d’action, juste le design et laisser le menu pour après) :
+![screens.gif](screens.gif)
