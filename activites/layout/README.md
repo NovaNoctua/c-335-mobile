@@ -16,6 +16,6 @@ En lien avec la [théorie sur les évènements](../../supports/05a-evenement.md)
 
 ![teethmove.gif](teethmove.gif)
 
-## Storyboard
+## Pages statiques du storyboard
 Reprendre le storyboard FlashCard et implémenter un design correspondant (pas d’action, juste le design et laisser le menu pour après) :
 ![screens.gif](screens.gif)

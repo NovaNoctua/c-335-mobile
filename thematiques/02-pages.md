@@ -24,7 +24,7 @@ Les *pages* ou écrans s’articulent autour de 3 axes principaux:
 - [Navigation](https://create.kahoot.it/share/maui-navigation/5ac87633-1c31-4e2b-b073-ceebe1e9deac)
 
 ## Activités
-- [ ] [Visage](../activites/visage/README.md)
+- [ ] [Layout](../activites/layout/README.md)
 - [ ] [Menu](../activites/menu/README.md)
 
 ## Résultat attendu

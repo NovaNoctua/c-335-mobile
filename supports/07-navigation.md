@@ -2,10 +2,10 @@
 
 ![navigation.webp](assets/navigation.webp)
 
-Il existe plusieurs manières de gérer la navigation entre pages dans MAUI (Multi-platform App UI) dont voici un 
-résumé.
+Historiquement réalisée avec une `pile de navigation`, le parcours dans une application avec MAUI se fait plus naturellement avec une surcouche nommée `shell`.
 
 ## 1. Navigation de base avec Shell
+Le shell utilise sa propre pile et il est déconseillé de le mélanger avec [la pile de base](#4-navigation-par-pile-pushpop-hors-shell).
 
 ```csharp
 // Dans App.xaml.cs
@@ -86,7 +86,7 @@ await Navigation.PushModalAsync(new ModalPage());
 await Navigation.PopModalAsync();
 ```
 
-## 4. Navigation par pile (Push/Pop)
+## 4. Navigation par pile (Push/Pop) [hors shell]
 
 ```csharp
 // Ajouter une page à la pile
@@ -126,9 +126,18 @@ await secondPage.FadeTo(1, 500);
 </TabBar>
 ```
 
-## 7. Navigation vers une page du Shell
+## 7. Les 4 navigations principales avec le Shell
 
 ```csharp
-// Naviguer vers un onglet spécifique
-await Shell.Current.GoToAsync("//profile");
+// Remonte d'un niveau
+await Shell.Current.GoToAsync("../");
+
+// Remonte puis va à une route au même niveau
+await Shell.Current.GoToAsync("../sisterpage");
+
+// Navigation relative (ajoute au stack)
+await Shell.Current.GoToAsync("detailpage");
+
+// Navigation absolue (efface le stack)
+await Shell.Current.GoToAsync("//homepage");
 ```
