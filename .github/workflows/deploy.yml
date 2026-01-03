@@ -45,17 +45,10 @@ jobs:
       - name: Build with VitePress
         run: pnpm docs:build
 
-      - name: Install Chrome for Puppeteer
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y chromium-browser
-        env:
-          DEBIAN_FRONTEND: noninteractive
-
       - name: Generate pdfs
         run: pnpm pdf:lin
         env:
-          PUPPETEER_EXECUTABLE_PATH: /usr/bin/chromium-browser
+          PUPPETEER_EXECUTABLE_PATH: /usr/bin/google-chrome
         continue-on-error: true
 
       - name: Generate slides
