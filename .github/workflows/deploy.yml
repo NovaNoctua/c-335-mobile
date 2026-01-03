@@ -37,16 +37,33 @@ jobs:
         with:
           node-version: 20
           cache: pnpm #
+
+      - name: Cache Puppeteer browsers
+        uses: actions/cache@v4
+        with:
+          path: ${{ github.workspace }}/.cache/puppeteer
+          key: ${{ runner.os }}-puppeteer-${{ hashFiles('**/pnpm-lock.yaml') }}
+          restore-keys: |
+            ${{ runner.os }}-puppeteer-
+
       - name: Setup Pages
         uses: actions/configure-pages@v4
       - name: Install dependencies
         run: pnpm install
 
       - name: Build with VitePress
-        run: pnpm docs:build 
-      
+        run: pnpm docs:build
+
+      - name: Install Chrome for Puppeteer
+        run: |
+          npx puppeteer browsers install chrome
+        env:
+          PUPPETEER_CACHE_DIR: ${{ github.workspace }}/.cache/puppeteer
+
       - name: Generate pdfs
         run: pnpm pdf:lin
+        env:
+          PUPPETEER_CACHE_DIR: ${{ github.workspace }}/.cache/puppeteer
         continue-on-error: true
 
       - name: Generate slides
