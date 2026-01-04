@@ -22,6 +22,11 @@ private void OnButtonClicked(object sender, EventArgs e)
     btnClickMe.BackgroundColor = Colors.Green;
 }
 ```
+
+> On déduit de cet exemple, que la propriété ‘x:Name‘ définit le nom de l’attribut dans le code behind.
+> C’est un peu comme si on ajoutait un attribut dans la classe avec ce nom là...
+> Ceci est valable pour tout composant XAML.
+
 ## 2. Champs de Saisie - Événement TextChanged
 
 ### XAML
