@@ -59,7 +59,7 @@ après avoir ajouté 2 cartes dans un paquet, le contenu suivant :
 ## Read
 Une fois les données sauvegardées en `json`,  on peut les charger de manière similaire avec le `JsonSerializer` :
 
-![img.png](08a-code-deserialize.png)
+![img.png](assets/08a-code-deserialize.png)
 
 > La méthode `Deserialize` doit indiquer entre chevron (<>) le type de l'objet de destination.
 > Dans notre cas, une liste de `Deck` a été sérialisée, c'est donc ce type là qu'on
@@ -74,7 +74,7 @@ Une fois les données sauvegardées en `json`,  on peut les charger de manière 
 Pour la mise à jour, nous avons déjà tout ce qui est nécessaire et il suffit de modifier un élément en mémoire puis
 de pérsister les éléments mis à jour :
 
-![](08a-rename-deck.png)
+![](assets/08a-rename-deck.png)
 
 > L'instruction `dataService.UpdateDeck(currentDeck)` fera appel à `JsonSerializer.Serialize(...)` et ainsi le fichier
 > JSON sera mis à jour avec le nouveau nom du deck...

@@ -38,72 +38,75 @@ Les valeurs sont exprimées en G (9,81 m/s²).
 ```csharp
 using Microsoft.Maui.Devices.Sensors;
 
-public partial class BasicAccelerometerPage : ContentPage
+namespace MauiAccelerometerDemo
 {
-    public BasicAccelerometerPage()
+    public partial class BasicAccelerometerPage : ContentPage
     {
-        InitializeComponent();
-        
-        // Vérifier si l'accéléromètre est disponible
-        if (Accelerometer.Default.IsSupported)
+        public BasicAccelerometerPage()
         {
-            // Définir la fréquence de mise à jour (peut être Low, Medium, High)
-            Accelerometer.Default.ShakeDetected += Accelerometer_ShakeDetected;
-            Accelerometer.Default.ReadingChanged += Accelerometer_ReadingChanged;
-            
-            // Démarrer la surveillance
-            if (!Accelerometer.Default.IsMonitoring)
+            InitializeComponent();
+
+            // Vérifier si l'accéléromètre est disponible
+            if (Accelerometer.Default.IsSupported)
             {
-                Accelerometer.Default.Start(SensorSpeed.UI);
+                // Définir la fréquence de mise à jour (peut être Low, Medium, High)
+                Accelerometer.Default.ShakeDetected += Accelerometer_ShakeDetected;
+                Accelerometer.Default.ReadingChanged += Accelerometer_ReadingChanged;
+
+                // Démarrer la surveillance
+                if (!Accelerometer.Default.IsMonitoring)
+                {
+                    Accelerometer.Default.Start(SensorSpeed.UI);
+                }
+            }
+            else
+            {
+                lblStatus.Text = "L'accéléromètre n'est pas disponible sur cet appareil.";
             }
         }
-        else
+
+        private void Accelerometer_ReadingChanged(object sender, AccelerometerChangedEventArgs e)
         {
-            lblStatus.Text = "L'accéléromètre n'est pas disponible sur cet appareil.";
+            // Accéder aux valeurs de l'accéléromètre
+            AccelerometerData data = e.Reading;
+
+            // Mettre à jour l'interface utilisateur sur le thread UI
+            MainThread.BeginInvokeOnMainThread(() =>
+            {
+                lblX.Text = $"X: {data.Acceleration.X:F2}";
+                lblY.Text = $"Y: {data.Acceleration.Y:F2}";
+                lblZ.Text = $"Z: {data.Acceleration.Z:F2}";
+            });
         }
-    }
 
-    private void Accelerometer_ReadingChanged(object sender, AccelerometerChangedEventArgs e)
-    {
-        // Accéder aux valeurs de l'accéléromètre
-        AccelerometerData data = e.Reading;
-        
-        // Mettre à jour l'interface utilisateur sur le thread UI
-        MainThread.BeginInvokeOnMainThread(() =>
+        private void Accelerometer_ShakeDetected(object sender, EventArgs e)
         {
-            lblX.Text = $"X: {data.Acceleration.X:F2}";
-            lblY.Text = $"Y: {data.Acceleration.Y:F2}";
-            lblZ.Text = $"Z: {data.Acceleration.Z:F2}";
-        });
-    }
-
-    private void Accelerometer_ShakeDetected(object sender, EventArgs e)
-    {
-        MainThread.BeginInvokeOnMainThread(async () =>
-        {
-            // Action à effectuer lors de la détection d'une secousse
-            await DisplayAlert("Secousse détectée", "L'appareil a été secoué!", "OK");
-        });
-    }
-
-    protected override void OnDisappearing()
-    {
-        if (Accelerometer.Default.IsSupported)
-        {
-            // Arrêter la surveillance et supprimer les gestionnaires d'événements
-            Accelerometer.Default.Stop();
-            Accelerometer.Default.ReadingChanged -= Accelerometer_ReadingChanged;
-            Accelerometer.Default.ShakeDetected -= Accelerometer_ShakeDetected;
+            MainThread.BeginInvokeOnMainThread(async () =>
+            {
+                // Action à effectuer lors de la détection d'une secousse
+                await DisplayAlert("Secousse détectée", "L'appareil a été secoué!", "OK");
+            });
         }
-        
-        base.OnDisappearing();
+
+        protected override void OnDisappearing()
+        {
+            if (Accelerometer.Default.IsSupported)
+            {
+                // Arrêter la surveillance et supprimer les gestionnaires d'événements
+                Accelerometer.Default.Stop();
+                Accelerometer.Default.ReadingChanged -= Accelerometer_ReadingChanged;
+                Accelerometer.Default.ShakeDetected -= Accelerometer_ShakeDetected;
+            }
+
+            base.OnDisappearing();
+        }
     }
 }
 ```
 
 
 
-## 2. Implémentation avec MVVM
+## 2. Implémentation avec MVVM (optionnel / avancé)
 
 ### Théorie
 
@@ -296,20 +299,31 @@ namespace MauiAccelerometerDemo.Views
     public partial class MvvmAccelerometerPage : ContentPage
     {
         private AccelerometerViewModel _viewModel;
-        
+
         public MvvmAccelerometerPage()
         {
             InitializeComponent();
             _viewModel = (AccelerometerViewModel)BindingContext;
-            
+
             // Créer un dessin personnalisé pour représenter l'orientation
             OrientationGraphics.Drawable = new OrientationDrawable(_viewModel);
+
+            // S'abonner aux changements de propriétés pour rafraîchir le GraphicsView
+            _viewModel.PropertyChanged += (s, e) =>
+            {
+                if (e.PropertyName == nameof(_viewModel.XValue) ||
+                    e.PropertyName == nameof(_viewModel.YValue) ||
+                    e.PropertyName == nameof(_viewModel.ZValue))
+                {
+                    OrientationGraphics.Invalidate();
+                }
+            };
         }
-        
+
         protected override void OnDisappearing()
         {
             base.OnDisappearing();
-            
+
             // Assurer que les ressources sont libérées
             if (_viewModel.IsMonitoring)
             {
