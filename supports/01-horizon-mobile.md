@@ -23,36 +23,40 @@ Les applications mobiles diffèrent des applications traditionnelles ("normales"
 ### Natif spécifique
 
 - **Android (Java)**
-    - **Avantages** : Performances optimales, accès complet aux API du système, expérience utilisateur cohérente
-    - **Inconvénients** : Développement spécifique à une plateforme, compétences spécialisées requises
+
+  - **Avantages** : Performances optimales, accès complet aux API du système, expérience utilisateur cohérente
+  - **Inconvénients** : Développement spécifique à une plateforme, compétences spécialisées requises
 
 - **iOS (Objective-C, Swift)**
-    - **Avantages** : Performances élevées, interface utilisateur cohérente avec les directives Apple
-    - **Inconvénients** : Limité à l'écosystème Apple, nécessite des Mac pour le développement
+  - **Avantages** : Performances élevées, interface utilisateur cohérente avec les directives Apple
+  - **Inconvénients** : Limité à l'écosystème Apple, nécessite des Mac pour le développement
 
 ### Natif lié
 
 - **Kivy (Python)**
-    - **Avantages** : Développement cross-platform avec Python, bonne communauté
-    - **Inconvénients** : Performances modérées, interface parfois non native
+
+  - **Avantages** : Développement cross-platform avec Python, bonne communauté
+  - **Inconvénients** : Performances modérées, interface parfois non native
 
 - **Kotlin**
-    - **Avantages** : Langage moderne pour Android, interopérable avec Java
-    - **Inconvénients** : Principalement centré sur Android (bien que Kotlin Multiplatform évolue)
+  - **Avantages** : Langage moderne pour Android, interopérable avec Java
+  - **Inconvénients** : Principalement centré sur Android (bien que Kotlin Multiplatform évolue)
 
 ### Natif avec runtime
 
 - **.NET MAUI (Mono)**
-    - **Avantages** : Code partagé entre plateformes, écosystème Microsoft
-    - **Inconvénients** : Taille de l'application, performances parfois inférieures au natif
+
+  - **Avantages** : Code partagé entre plateformes, écosystème Microsoft
+  - **Inconvénients** : Taille de l'application, performances parfois inférieures au natif
 
 - **React Native (JavaScript)**
-    - **Avantages** : Développement rapide, large communauté, réutilisation des compétences web
-    - **Inconvénients** : Dépendance aux ponts natifs, performances variables selon la complexité
+
+  - **Avantages** : Développement rapide, large communauté, réutilisation des compétences web
+  - **Inconvénients** : Dépendance aux ponts natifs, performances variables selon la complexité
 
 - **Flutter**
-    - **Avantages** : UI cohérente sur toutes les plateformes, performances proches du natif
-    - **Inconvénients** : Écosystème plus jeune, apprentissage de Dart
+  - **Avantages** : UI cohérente sur toutes les plateformes, performances proches du natif
+  - **Inconvénients** : Écosystème plus jeune, apprentissage de Dart
 
 ## Accès aux fonctionnalités matérielles
 
@@ -61,7 +65,7 @@ Les applications mobiles diffèrent des applications traditionnelles ("normales"
 Oui, c'est possible grâce à l'API DeviceMotion et DeviceOrientation en JavaScript :
 
 ```javascript
-window.addEventListener('devicemotion', function (event) {
+window.addEventListener("devicemotion", function (event) {
   // Option 1: Accélération avec gravité
   var x = event.accelerationIncludingGravity.x;
   var y = event.accelerationIncludingGravity.y;
@@ -76,14 +80,14 @@ window.addEventListener('devicemotion', function (event) {
 });
 ```
 
->Cependant, l'accès à ces API est soumis à des restrictions de sécurité dans les navigateurs modernes et peut nécessiter
-une autorisation explicite de l'utilisateur.
+> Cependant, l'accès à ces API est soumis à des restrictions de sécurité dans les navigateurs modernes et peut nécessiter
+> une autorisation explicite de l'utilisateur.
 
 ## Processus de développement
 
 ### Par quoi commencer : code ou storyboard ?
 
-Comme pour toute application, la meilleure pratique recommande généralement de commencer par le storyboard 
+Comme pour toute application, la meilleure pratique recommande généralement de commencer par le storyboard
 (conception) avant le code :
 
 1. **Définir les besoins utilisateurs**
@@ -108,7 +112,7 @@ Comme pour toute application, la meilleure pratique recommande généralement de
 
 ![grocery-app-architecture.svg](assets/grocery-app-architecture.svg)
 
-"Grocery Store Locator", une application fictive pour trouver le magasin le plus proche illustrerait un cas 
+"Grocery Store Locator", une application fictive pour trouver le magasin le plus proche illustrerait un cas
 d'utilisation typique pouvant combiner :
 
 - Géolocalisation

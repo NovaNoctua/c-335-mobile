@@ -1,0 +1,66 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TestsLayout.MainPage">
+
+    <ScrollView>
+        <StackLayout Margin="0, 100, 0, 0">
+            <FlexLayout JustifyContent="SpaceAround" Margin="0, 0, 0, 10">
+                <BoxView Color="DarkGreen" WidthRequest="150" HeightRequest="100"></BoxView>
+                <Label Text="RIGHT EYE" WidthRequest="150" HeightRequest="100" VerticalTextAlignment="Center" HorizontalTextAlignment="Center" BackgroundColor="Beige"></Label>
+            </FlexLayout>
+            <Grid RowSpacing="5" ColumnSpacing="5" Margin="3, 0, 3, 0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="50"/>
+                    <RowDefinition Height="50"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                    <ColumnDefinition/>
+                </Grid.ColumnDefinitions>
+                <BoxView Color="LightGray" Grid.Row="0" Grid.Column="0" />
+                <BoxView Color="LightGray" Grid.Row="0" Grid.Column="1" />
+                <BoxView Color="LightGray" Grid.Row="0" Grid.Column="2" />
+                <BoxView Color="LightGray" Grid.Row="0" Grid.Column="3" />
+                <BoxView Color="LightGray" Grid.Row="0" Grid.Column="4" />
+                <BoxView Color="LightGray" Grid.Row="0" Grid.Column="5" />
+                <BoxView Color="LightGray" Grid.Row="0" Grid.Column="6" />
+                <BoxView Color="LightGray" Grid.Row="0" Grid.Column="7" />
+                <BoxView Color="LightGray" Grid.Row="1" Grid.Column="0" />
+                <BoxView Color="LightGray" Grid.Row="1" Grid.Column="1" />
+                <BoxView Color="LightGray" Grid.Row="1" Grid.Column="2" />
+                <Grid ColumnSpacing="2" Grid.Row="1" Grid.Column="3">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="50"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition/>
+                        <ColumnDefinition/>
+                    </Grid.ColumnDefinitions>
+                    <BoxView Grid.Row="0 " Color="DarkGray"></BoxView>
+                    <BoxView Grid.Row="0" Grid.Column="1" Color="DarkGray"></BoxView>
+                </Grid>
+                <BoxView Color="LightGray" Grid.Row="1" Grid.Column="4" />
+                <BoxView Color="LightGray" Grid.Row="1" Grid.Column="5" />
+                <BoxView Color="LightGray" Grid.Row="1" Grid.Column="6" />
+                <BoxView Color="LightGray" Grid.Row="1" Grid.Column="7" />
+            </Grid>
+
+            <Button Text="Cliquez-moi" Clicked="OnButtonClicked" x:Name="btnClickMe" Margin="0, 20, 0, 10"/>
+
+            <Entry Placeholder="Tapez ici...." TextChanged="OnTextChanged" Completed="OnTextCompleted" x:Name="txtName" />
+
+            <StackLayout Orientation="Horizontal">            
+                <CheckBox x:Name="AcceptTerms" CheckedChanged="OnCheckboxChanged" Color="Blue"/>
+                <Label Text="J'accepte les conditions" VerticalOptions="Center"/>
+            </StackLayout>
+
+        </StackLayout>
+    </ScrollView>
+
+</ContentPage>

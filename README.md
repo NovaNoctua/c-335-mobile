@@ -23,7 +23,4 @@ features:
     details: VSCommunity, Figma, Git
 ---
 
-
 ![roadmap](./roadmap.png)
-
-

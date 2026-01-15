@@ -15,13 +15,13 @@ XAML suit la structure XML :
 Dans XML, "M" signifie Markup (balisage) :
 
 - Une balise s'ouvre et se ferme
-    - Ouvrante: `<recette>`
-    - Fermante: `</recette>`
+  - Ouvrante: `<recette>`
+  - Fermante: `</recette>`
 - Une balise peut avoir :
-    - Des attributs
-    - Un corps
+  - Des attributs
+  - Un corps
 - Si une balise ne contient pas de "corps", on peut la fermer avec un raccourci :
-    - `<four option="airChaud" />`
+  - `<four option="airChaud" />`
 
 ### Exemple XML 🍪
 
@@ -109,14 +109,14 @@ Les namespaces définissent les ensembles d'éléments disponibles :
              x:Class="HelloMaui1.Crud"
              xmlns:viewModels="clr-namespace:HelloMaui1.ViewModels"
              Title="Crud">
-  
+
 </ContentPage>
 ```
 
 ## Exemples XAML courants
-	
+
 | Description                  | XAML                                                                                                                                                                                                                                                                                    | Rendu                                   |
-|------------------------------|-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|-----------------------------------------|
+| ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------- |
 | Afficher un bouton "quitter" | `<Button Text="quitter" />`                                                                                                                                                                                                                                                             | [Bouton avec texte "quitter"]           |
 | Afficher une grille 2x2      | `<Grid WidthRequest="100" HeightRequest="100">` <br> `<BoxView Grid.Row="0" Grid.Column="0" />` <br> `<BoxView Grid.Row="0" Grid.Column="1" Color="Red" />` <br> `<BoxView Grid.Row="1" Grid.Column="0" Color="Blue" />` <br> `<BoxView Grid.Row="1" Grid.Column="1" />` <br> `</Grid>` | [Grille 2x2 avec cases colorées]        |
 | Afficher un champ texte      | `<Entry Text="Votre nom" />`                                                                                                                                                                                                                                                            | [Champ de saisie avec texte par défaut] |
